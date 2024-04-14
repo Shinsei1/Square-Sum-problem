@@ -1,4 +1,5 @@
-# Créé par Waîl Yeager, le 14/04/2024 en Python 3.7
+#In this file , im using a function to backtrack when the path is not good, as it is not the right way to solve this problem (solution is becoming slower at n = 50), im using it only on low values(<=40)
+#it is also a way for not having to get the result of 26 to put it in 
 def make_graph(n):
     path = []
     graph = [[] for _ in range(n + 1)]
@@ -32,12 +33,9 @@ def square_sums_bis(n):
         chemin = chaine_hamiltonienne(graph, sommet, n, [])
         if chemin:
             return chemin
-    return None
+    return False 
 
 def square_sums(n):
-    if n < 15 or (n >= 18 and n < 23) or (n == 24):
-        return False
-
     graph = make_graph(n)
     for i in range(1, n):
         chemin = []
